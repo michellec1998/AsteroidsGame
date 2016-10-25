@@ -1,21 +1,24 @@
-//your variable declarations here
+SpaceShip profx = new SpaceShip();
 public void setup() 
 {
-  //your code here
+  setup (500, 500);
 }
 public void draw() 
 {
-  //your code here
+  background (0);
+
+  profx.show();
+  profx.move();
 }
 class SpaceShip extends Floater  
 {   
-    public int corners;
+    /*public int corners;
     public int[] xCorners;
     public int[] yCorners;
     public int myColor;
     public double myCenterX, myCenterY;
     public double myDirectionX, myDirectionY;
-    public double myPointDirection;
+    public double myPointDirection; */
 
       myCenterX = 250;
       myCenterY = 250;
