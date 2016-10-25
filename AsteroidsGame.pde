@@ -7,10 +7,109 @@ public void draw()
 {
   //your code here
 }
-class SpaceShip //extends Floater  
+class SpaceShip extends Floater  
 {   
-    //your code here
+    public int corners;
+    public int[] xCorners;
+    public int[] yCorners;
+    public int myColor;
+    public double myCenterX, myCenterY;
+    public double myDirectionX, myDirectionY;
+    public double myPointDirection;
+
+      myCenterX = 250;
+      myCenterY = 250;
+      myDirectionX = 0;
+      myDirectionY = 0;
+      myPointDirection = 0;
+
+    public void setX(int x)
+      {
+        myCenterX = x;
+      }
+      public void setY(int y)
+      {
+        myCenterY = y;
+      }
+      public int getX()
+      {
+        return (int)myCenterX;
+      }
+      public int getY()
+      {
+        return (int)myCenterY;
+      }
+      public void setDirectionX(double x)
+      {
+        myDirectionX = x;
+      }  
+    public double getDirectionX()
+      {
+        return (double)x;
+      }   
+    public void setDirectionY(double y) 
+      {
+        myDirectionY = y;
+      }  
+    public double getDirectionY()
+      {
+        return (double)y;
+      }   
+    public void setPointDirection(int degrees)
+      {
+        myPointDirection = degrees;
+      }   
+    public double getPointDirection()
+      {
+        return (int)degrees;
+      } 
+
+    
+    public SpaceShip()
+    {
+      public void move()
+      {
+        myCenterX = myCenterX + myDirectionX;
+        myCenterY = myCenterY + myDirectionY;
+
+        if (myCenterX > width)
+        {
+          myCenterX = 0;
+        }
+        else if (myCenterX < 0)
+        {
+          myCenterX = width;
+        }
+        if (myCenterY > height)
+        {
+          myCenterY = 0;
+        }
+        else if (myCenterY < 0)
+        {
+          myCenterY = height;
+        }
+
+      }
+
+      public void show()
+      {
+        corners = 3;
+        xCorners = new corners;
+        yCorners = new corners;
+        xCorners[0] = -8;
+        yCorners[0] = -8;
+        xCorners[1] = 16;
+        yCorners[1] = 0;
+        xCorners[2] = -8;
+        yCorners[2] = 8;
+
+        noFill();
+        strokeWeight(10);
+        stroke((int)Math.random()*255), (int)Math.random()*255), (int)Math.random()*255);
+      }
+    }
 }
+//FLOATER CLASS BELOW DO NOT TOUCH
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
