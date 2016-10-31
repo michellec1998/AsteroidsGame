@@ -1,7 +1,7 @@
 SpaceShip profx = new SpaceShip();
 public void setup() 
 {
-  setup (500, 500);
+  size (500, 500);
 }
 public void draw() 
 {
@@ -31,6 +31,14 @@ class SpaceShip extends Floater
         yCorners[1] = 0;
         xCorners[2] = -8;
         yCorners[2] = 8;
+
+      myCenterX = 250;
+      myCenterY = 250;
+      myDirectionX = 0;
+      myDirectionY = 0;
+      myPointDirection = 0;
+
+    }
       
       public void move()
       {
@@ -63,15 +71,8 @@ class SpaceShip extends Floater
         strokeWeight(10);
         stroke((int)Math.random()*255), (int)Math.random()*255), (int)Math.random()*255);
       }
-    }
 
-      myCenterX = 250;
-      myCenterY = 250;
-      myDirectionX = 0;
-      myDirectionY = 0;
-      myPointDirection = 0;
-
-    public void setX(int x)
+      public void setX(int x)
       {
         myCenterX = x;
       }
@@ -111,8 +112,29 @@ class SpaceShip extends Floater
       {
         return (int)degrees;
       } 
-
     
+    }
+    
+class SmallStars
+{
+  private int myX, myY;
+
+  public Stars()
+  {
+    myX = (int)Math.random()*250;
+    myY = (int)Math.random()*250;
+  }
+  public void show()
+  {
+    point(myX, myY);
+    strokeWeight(4);
+    stroke(250);
+  }
+}
+class BigStars
+{
+  public Big
+}
     
 }
 //FLOATER CLASS BELOW DO NOT TOUCH
