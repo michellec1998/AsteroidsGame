@@ -1,7 +1,16 @@
 SpaceShip profx = new SpaceShip();
+SmallStars[] smalls = new SmallStars[];
+BigStars[] tubs = new BigStars[];
+Asteroids[] bold = new Asteroids[];
+
 public void setup() 
 {
   size (500, 500);
+
+  for (int j = 0; j < bold.length; j ++)
+  {
+    
+  }
 }
 public void draw() 
 {
@@ -9,6 +18,16 @@ public void draw()
 
   profx.show();
   profx.move();
+
+  for(int a = 0; a < smalls.length; a ++)
+  {
+    smalls.show();
+  }
+
+  for (int i = 0; i < tubs.length; i ++)
+  {
+    tubs.show();
+  }
 }
 class SpaceShip extends Floater  
 {   
@@ -19,6 +38,47 @@ class SpaceShip extends Floater
     public double myCenterX, myCenterY;
     public double myDirectionX, myDirectionY;
     public double myPointDirection;
+
+    public void setX(int x)
+      {
+        myCenterX = x;
+      }
+      public void setY(int y)
+      {
+        myCenterY = y;
+      }
+      public int getX()
+      {
+        return (int)myCenterX;
+      }
+      public int getY()
+      {
+        return (int)myCenterY;
+      }
+      public void setDirectionX(double x)
+      {
+        myDirectionX = x;
+      }  
+      public double getDirectionX()
+      {
+        return (double)x;
+      }   
+      public void setDirectionY(double y) 
+      {
+        myDirectionY = y;
+      }  
+      public double getDirectionY()
+      {
+        return (double)y;
+      }   
+      public void setPointDirection(int degrees)
+      {
+        myPointDirection = degrees;
+      }   
+      public double getPointDirection()
+      {
+        return (int)degrees;
+      }
 
   public SpaceShip()
     {
@@ -66,52 +126,12 @@ class SpaceShip extends Floater
 
       public void show()
       {
-
         noFill();
         strokeWeight(10);
         stroke((int)Math.random()*255), (int)Math.random()*255), (int)Math.random()*255);
       }
 
-      public void setX(int x)
-      {
-        myCenterX = x;
-      }
-      public void setY(int y)
-      {
-        myCenterY = y;
-      }
-      public int getX()
-      {
-        return (int)myCenterX;
-      }
-      public int getY()
-      {
-        return (int)myCenterY;
-      }
-      public void setDirectionX(double x)
-      {
-        myDirectionX = x;
-      }  
-      public double getDirectionX()
-      {
-        return (double)x;
-      }   
-      public void setDirectionY(double y) 
-      {
-        myDirectionY = y;
-      }  
-      public double getDirectionY()
-      {
-        return (double)y;
-      }   
-      public void setPointDirection(int degrees)
-      {
-        myPointDirection = degrees;
-      }   
-      public double getPointDirection()
-      {
-        return (int)degrees;
-      } 
+       
     
     }
     
@@ -119,13 +139,15 @@ class SmallStars
 {
   private int myX, myY;
 
-  public Stars()
+  public SmallStars()
   {
-    myX = (int)Math.random()*250;
-    myY = (int)Math.random()*250;
+    myX = x;
+    myy = y;
   }
   public void show()
   {
+    myX = (int)Math.random()*250;
+    myY = (int)Math.random()*250;
     point(myX, myY);
     strokeWeight(4);
     stroke(250);
@@ -133,8 +155,47 @@ class SmallStars
 }
 class BigStars
 {
-  public Big
+  private int myX, myY;
+
+  public BigStars()
+  {
+    myX = x;
+    myY = y;
+  }
+  public void show()
+  {
+    myX = (int)Math.random()*250;
+    myY = (int)Math.random()*250;
+    point (myX, myY);
+    strokeweight(10);
+    stroke(250);
+  }
 }
+
+class Asteroids
+{
+  private int myX, myY;
+  private double dAngle, dSpeed;
+  public Asteroids()
+  {
+    myX = x;
+    myY = y;
+    dAngle =  PI *2 *Math.random();
+    dSpeed = (Math.random() * 5) -2;
+  } 
+  public void move()
+  {
+    myX = myX + Math.cos(dAngle)*dSpeed;
+    myY = myY + Math.sin(dAngle)* dSpeed;
+  }
+  public void show()
+  {
+    rect(myX, myY, 10, 10);
+    fill(100);
+    strokeWeight(3);
+    stroke((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
+  }
+  
     
 }
 //FLOATER CLASS BELOW DO NOT TOUCH
