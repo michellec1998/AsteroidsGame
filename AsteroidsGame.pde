@@ -9,7 +9,7 @@ public void setup()
 
   for (int j = 0; j < bold.length; j ++)
   {
-    
+    bold[j] = new Asteroids();
   }
 }
 public void draw() 
@@ -21,12 +21,18 @@ public void draw()
 
   for(int a = 0; a < smalls.length; a ++)
   {
-    smalls.show();
+    smalls[a].show();
   }
 
   for (int i = 0; i < tubs.length; i ++)
   {
-    tubs.show();
+    tubs[i].show();
+  }
+
+  for(int j = 0; j < bold.length; j++)
+  {
+    bold[j].show();
+    bold[j].move();
   }
 }
 class SpaceShip extends Floater  
@@ -100,7 +106,7 @@ class SpaceShip extends Floater
 
     }
       
-      public void move()
+     /* public void move()
       {
         myCenterX = myCenterX + myDirectionX;
         myCenterY = myCenterY + myDirectionY;
@@ -122,7 +128,7 @@ class SpaceShip extends Floater
           myCenterY = height;
         }
 
-      }
+      } */
 
       public void show()
       {
@@ -130,8 +136,6 @@ class SpaceShip extends Floater
         strokeWeight(10);
         stroke((int)Math.random()*255), (int)Math.random()*255), (int)Math.random()*255);
       }
-
-       
     
     }
     
