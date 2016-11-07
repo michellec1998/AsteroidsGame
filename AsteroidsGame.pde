@@ -16,7 +16,7 @@ public void draw()
 {
   background (0);
 
-  profx.show();
+  /*profx.show();
   profx.move();
 
   for(int a = 0; a < smalls.length; a ++)
@@ -33,7 +33,7 @@ public void draw()
   {
     bold[j].show();
     bold[j].move();
-  }
+  } */
 }
 class SpaceShip extends Floater  
 {   
@@ -46,45 +46,45 @@ class SpaceShip extends Floater
     public double myPointDirection;
 
     public void setX(int x)
-      {
-        myCenterX = x;
-      }
-      public void setY(int y)
-      {
-        myCenterY = y;
-      }
-      public int getX()
-      {
-        return (int)myCenterX;
-      }
-      public int getY()
-      {
-        return (int)myCenterY;
-      }
-      public void setDirectionX(double x)
-      {
-        myDirectionX = x;
-      }  
-      public double getDirectionX()
-      {
-        return (double)x;
-      }   
-      public void setDirectionY(double y) 
-      {
-        myDirectionY = y;
-      }  
-      public double getDirectionY()
-      {
-        return (double)y;
-      }   
-      public void setPointDirection(int degrees)
-      {
-        myPointDirection = degrees;
-      }   
-      public double getPointDirection()
-      {
-        return (int)degrees;
-      }
+    {
+      myCenterX = x;
+    }
+    public void setY(int y)
+    {
+      myCenterY = y;
+    }
+    public int getX()
+    {
+      return (int)myCenterX;
+    }
+    public int getY()
+    {
+      return (int)myCenterY;
+    }
+    public void setDirectionX(double x)
+    {
+      myDirectionX = x;
+    }  
+    public double getDirectionX()
+    {
+      return (double)x;
+    }   
+    public void setDirectionY(double y) 
+    {
+      myDirectionY = y;
+    }  
+    public double getDirectionY()
+    {
+      return (double)y;
+    }   
+    public void setPointDirection(int degrees)
+    {
+      myPointDirection = degrees;
+    }   
+    public double getPointDirection()
+    {
+      return (int)degrees;
+    }
 
   public SpaceShip()
     {
