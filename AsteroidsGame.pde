@@ -1,208 +1,150 @@
-SpaceShip profx = new SpaceShip();
-SmallStars[] smalls = new SmallStars[];
-BigStars[] tubs = new BigStars[];
-Asteroids[] bold = new Asteroids[];
-
-public void setup() 
+Spaceship hello = new Spaceship();
+public void settings() 
 {
-  size (500, 500);
-
-  for (int j = 0; j < bold.length; j ++)
-  {
-    bold[j] = new Asteroids();
-  }
+  size(500,500);
 }
 public void draw() 
 {
-  background (0);
-
-  /*profx.show();
-  profx.move();
-
-  for(int a = 0; a < smalls.length; a ++)
-  {
-    smalls[a].show();
-  }
-
-  for (int i = 0; i < tubs.length; i ++)
-  {
-    tubs[i].show();
-  }
-
-  for(int j = 0; j < bold.length; j++)
-  {
-    bold[j].show();
-    bold[j].move();
-  } */
+  background(0);
+  hello.show();
+  
+  //fill(250);
+  //ellipse(50, 50, 10, 10);
 }
-class SpaceShip extends Floater  
-{   
-    private int corners;
-    private int[] xCorners;
-    private int[] yCorners;
+
+class Spaceship extends Floater  
+{
+    public int corners;
+    public int[] xCorners;
+    public int[] yCorners;
     public int myColor;
     public double myCenterX, myCenterY;
     public double myDirectionX, myDirectionY;
     public double myPointDirection;
-
+    
     public void setX(int x)
-    {
-      myCenterX = x;
-    }
+   {
+     myCenterX = x;
+   }
+   public int getX()
+   {
+     return (int)myCenterX;
+   }
     public void setY(int y)
-    {
-      myCenterY = y;
-    }
-    public int getX()
-    {
-      return (int)myCenterX;
-    }
-    public int getY()
-    {
-      return (int)myCenterY;
-    }
-    public void setDirectionX(double x)
-    {
-      myDirectionX = x;
-    }  
-    public double getDirectionX()
-    {
-      return (double)x;
-    }   
-    public void setDirectionY(double y) 
-    {
-      myDirectionY = y;
-    }  
-    public double getDirectionY()
-    {
-      return (double)y;
-    }   
-    public void setPointDirection(int degrees)
-    {
-      myPointDirection = degrees;
-    }   
-    public double getPointDirection()
-    {
-      return (int)degrees;
-    }
+   {
+     myCenterY = y;
+   }
+   public int getY()
+   {
+     return (int)myCenterY;
+   }
+   public void setDirectionX(double x)
+   {
+     myDirectionX = x;
+   }
+   public double getDirectionX()  
+   {
+     return (double)myDirectionX;
+   }
+   public void setDirectionY(double y)
+   {
+     myDirectionY = y;
+   }
+   public double getDirectionY()
+  {
+    return (double)myDirectionY;
+  }
+  public void setPointDirection(int degrees)
+  {
+    myPointDirection = degrees;
+  }
+  public double getPointDirection()
+  {
+    return (double)myPointDirection;
+  }
 
-  public SpaceShip()
-    {
-        corners = 3;
-        xCorners = new corners;
-        yCorners = new corners;
-        xCorners[0] = -8;
-        yCorners[0] = -8;
-        xCorners[1] = 16;
-        yCorners[1] = 0;
-        xCorners[2] = -8;
-        yCorners[2] = 8;
-
-      myCenterX = 250;
-      myCenterY = 250;
-      myDirectionX = 0;
-      myDirectionY = 0;
-      myPointDirection = 0;
-
-    }
-      
-     /* public void move()
-      {
-        myCenterX = myCenterX + myDirectionX;
-        myCenterY = myCenterY + myDirectionY;
-
-        if (myCenterX > width)
-        {
-          myCenterX = 0;
-        }
-        else if (myCenterX < 0)
-        {
-          myCenterX = width;
-        }
-        if (myCenterY > height)
-        {
-          myCenterY = 0;
-        }
-        else if (myCenterY < 0)
-        {
-          myCenterY = height;
-        }
-
-      } */
-
-      public void show()
-      {
-        noFill();
-        strokeWeight(10);
-        stroke((int)Math.random()*255), (int)Math.random()*255), (int)Math.random()*255);
-      }
+   public Spaceship()
+  {
+    myCenterX = 250;
+    myCenterY = 250;
+    myDirectionX = 90;
+    myDirectionY = 90;
+    myPointDirection = 100;
     
-    }
-    
-class SmallStars
-{
-  private int myX, myY;
-
-  public SmallStars()
-  {
-    myX = x;
-    myy = y;
-  }
-  public void show()
-  {
-    myX = (int)Math.random()*250;
-    myY = (int)Math.random()*250;
-    point(myX, myY);
-    strokeWeight(4);
-    stroke(250);
-  }
-}
-class BigStars
-{
-  private int myX, myY;
-
-  public BigStars()
-  {
-    myX = x;
-    myY = y;
-  }
-  public void show()
-  {
-    myX = (int)Math.random()*250;
-    myY = (int)Math.random()*250;
-    point (myX, myY);
-    strokeweight(10);
-    stroke(250);
-  }
-}
-
-class Asteroids
-{
-  private int myX, myY;
-  private double dAngle, dSpeed;
-  public Asteroids()
-  {
-    myX = x;
-    myY = y;
-    dAngle =  PI *2 *Math.random();
-    dSpeed = (Math.random() * 5) -2;
-  } 
-  public void move()
-  {
-    myX = myX + Math.cos(dAngle)*dSpeed;
-    myY = myY + Math.sin(dAngle)* dSpeed;
-  }
-  public void show()
-  {
-    rect(myX, myY, 10, 10);
-    fill(100);
-    strokeWeight(3);
-    stroke((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
+    corners = 3;
+    xCorners = new int[corners];
+    yCorners = new int[corners];
+    xCorners[0] = -8;
+    yCorners[0] = -8;
+    xCorners[1] = 16;
+    yCorners[1] = 0;
+    xCorners[2] = -8;
+    yCorners[2] = 8;
   }
   
+  public void show()
+  {
+    noFill();
+    strokeWeight(3);
+    stroke((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
     
+    double dRadians = myPointDirection*(Math.PI/180);                 
+    int xRotatedTranslated, yRotatedTranslated;    
+    beginShape();         
+    for(int nI = 0; nI < corners; nI++)    
+    {     
+      //rotate and translate the coordinates of the floater using current direction 
+      xRotatedTranslated = (int)((xCorners[nI]* Math.cos(dRadians)) - (yCorners[nI] * Math.sin(dRadians))+myCenterX);     
+      yRotatedTranslated = (int)((xCorners[nI]* Math.sin(dRadians)) + (yCorners[nI] * Math.cos(dRadians))+myCenterY);      
+      vertex(xRotatedTranslated,yRotatedTranslated);    
+    }   
+    endShape(CLOSE);  
+  }  
+
 }
-//FLOATER CLASS BELOW DO NOT TOUCH
+  
+public void keyPressed()
+{
+  if (keyCode == 39)
+  {
+    hello.myCenterX ++;
+    hello.myPointDirection = hello.myPointDirection +6;
+  }
+  if (keyCode == 37)
+  {
+     hello.myCenterX --;
+     hello.myPointDirection = hello.myPointDirection +6;
+  }
+  if (keyCode == 38)
+  {
+    hello.myCenterY = hello.myCenterY + hello.myPointDirection;
+  }
+  if (keyCode == 40)
+  {
+    hello.myCenterY ++;
+  }
+}  
+
+class Stars
+{
+  private int myX, myY;
+  private int x,y;
+  public Stars()
+  {
+    myX = x;
+    myY = y;
+    public void show()
+    {
+      point(myX, myY);
+      strokeWeight(1);
+      stroke(250);
+    }
+  }
+  
+}
+  
+  
+//FLOATER CLASS - DO NOT TOUCH  
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
@@ -279,4 +221,3 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     endShape(CLOSE);  
   }   
 } 
-
