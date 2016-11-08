@@ -1,12 +1,24 @@
 Spaceship hello = new Spaceship();
+Stars[] sparkles = new Stars[400];
+
 public void settings() 
 {
   size(500,500);
+
+  for (int a = 0; a < sparkles.length; a ++)
+  {
+    sparkles[a] = new Stars();
+  }
 }
 public void draw() 
 {
   background(0);
   hello.show();
+
+  for (int a = 0; a < sparkles.length; a ++)
+  {
+    sparkles[a].show();
+  }
   
   //fill(250);
   //ellipse(50, 50, 10, 10);
@@ -105,41 +117,63 @@ class Spaceship extends Floater
   
 public void keyPressed()
 {
+  //to rotate right
   if (keyCode == 39)
   {
-    hello.myCenterX ++;
     hello.myPointDirection = hello.myPointDirection +6;
   }
+  //to rotate left
   if (keyCode == 37)
   {
-     hello.myCenterX --;
-     hello.myPointDirection = hello.myPointDirection +6;
+     hello.myPointDirection = hello.myPointDirection -6;
   }
+  //to go foward
   if (keyCode == 38)
   {
-    hello.myCenterY = hello.myCenterY + hello.myPointDirection;
+    hello.myCenterX = hello.myCenterX + Math.cos(hello.myPointDirection);
+    hello.myCenterY = hello.myCenterY + Math.sin(hello.myPointDirection);
   }
+  //to go back
   if (keyCode == 40)
   {
-    hello.myCenterY ++;
+    hello.myCenterY --;
+    hello.myCenterX --;
   }
+  //hyperspace
+  if (keyCode == 72)
+  {
+    hello.myCenterY = (int)(Math.random()*495);
+    hello.myCenterX = (int)(Math.random()*495);
+    hello.myPointDirection = (int)(Math.random()*495);
+  }
+  //keypressed for shooting lasers
+  //if (keyCode == ) 
+
 }  
 
 class Stars
 {
   private int myX, myY;
-  private int x,y;
+
   public Stars()
   {
-    myX = x;
-    myY = y;
-    public void show()
+    myX = (int)(Math.random()*500);
+    myY = (int)(Math.random()*500);
+  }
+  public void show()
     {
       point(myX, myY);
-      strokeWeight(1);
+      strokeWeight(2);
       stroke(250);
     }
+class Asteroids
+{
+  private int myX, myY;
+  public Asteroids()
+  {
+    //have variables to have them float around randomly
   }
+}
   
 }
   
