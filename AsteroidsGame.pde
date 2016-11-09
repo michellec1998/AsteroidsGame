@@ -1,5 +1,7 @@
+
 Spaceship hello = new Spaceship();
 Stars[] sparkles = new Stars[400];
+Rocks[] boom = new Rocks[30];
 
 public void settings() 
 {
@@ -9,6 +11,11 @@ public void settings()
   {
     sparkles[a] = new Stars();
   }
+  for (int i = 0; i < boom.length; i ++)
+  {
+    boom[i] = new Rocks();
+  }
+
 }
 public void draw() 
 {
@@ -19,9 +26,16 @@ public void draw()
   {
     sparkles[a].show();
   }
-  
-  //fill(250);
-  //ellipse(50, 50, 10, 10);
+  for (int i = 0; i < boom.length; i ++)
+  {
+    boom[i].show();
+    boom[i].move();
+  }
+  /*to remove the asteriod when shot at
+    for(int i= 0.....)
+    distance(ship.getx, ?, ?, ?)
+  remove asteroids[i] */
+
 }
 
 class Spaceship extends Floater  
@@ -166,15 +180,33 @@ class Stars
       strokeWeight(2);
       stroke(250);
     }
-class Asteroids
-{
-  private int myX, myY;
-  public Asteroids()
-  {
-    //have variables to have them float around randomly
-  }
 }
-  
+
+class Rocks
+{
+  private double myX, myY;
+  private double dAngle, dSpeed;
+
+  public Rocks()
+  {
+    // have them float around randomly
+    myX = (int)(Math.random()*500);
+    myY = (int)(Math.random()*500);
+    dAngle =  PI *2 *Math.random();
+    dSpeed = (Math.random() * 5) -2;
+  }
+  public void move()
+  {
+    myX = myX + Math.cos(dAngle)*dSpeed;
+    myY = myY + Math.sin(dAngle)* dSpeed;
+  }
+  public void show()
+  {
+    fill(80);
+    strokeWeight(3);
+    stroke(0);
+    ellipse((float)myX, (float)myY, 15, 15);
+  }
 }
   
   
