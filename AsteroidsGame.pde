@@ -1,7 +1,7 @@
 
 Spaceship hello = new Spaceship();
 Stars[] sparkles = new Stars[400];
-Rocks[] boom = new Rocks[30];
+Rocks[] boom = new Rocks[(int)(Math.random()*255)];
 
 public void settings() 
 {
@@ -134,12 +134,12 @@ public void keyPressed()
   //to rotate right
   if (keyCode == 39)
   {
-    hello.myPointDirection = hello.myPointDirection +6;
+    hello.myPointDirection = hello.myPointDirection +8;
   }
   //to rotate left
   if (keyCode == 37)
   {
-     hello.myPointDirection = hello.myPointDirection -6;
+     hello.myPointDirection = hello.myPointDirection -8;
   }
   //to go foward
   if (keyCode == 38)
@@ -205,7 +205,7 @@ class Rocks
     fill(80);
     strokeWeight(3);
     stroke(0);
-    ellipse((float)myX, (float)myY, 15, 15);
+    ellipse((float)myX, (float)myY, 20, 20);
   }
 }
   
@@ -287,3 +287,4 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
     endShape(CLOSE);  
   }   
 } 
+//floater class
