@@ -1,7 +1,7 @@
 
 Spaceship hello = new Spaceship();
 Stars[] sparkles = new Stars[400];
-Rocks[] boom = new Rocks[(int)(Math.random()*255)];
+Rocks[] boom = new Rocks[200];
 
 public void settings() 
 {
@@ -192,9 +192,10 @@ class Rocks
     // have them float around randomly
     myX = (int)(Math.random()*500);
     myY = (int)(Math.random()*500);
-    dAngle =  PI *2 *Math.random();
-    dSpeed = (Math.random() * 5) -2;
+    dAngle = (int)(Math.random() * PI/2) + 1;
+    dSpeed = (Math.random() * 2);
   }
+  //move towards the spaceship
   public void move()
   {
     myX = myX + Math.cos(dAngle)*dSpeed;
