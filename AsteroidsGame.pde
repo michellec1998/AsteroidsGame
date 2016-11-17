@@ -1,7 +1,7 @@
 
 Spaceship hello = new Spaceship();
 Stars[] sparkles = new Stars[400];
-Rocks[] boom = new Rocks[200];
+Rocks[] boom = new Rocks[100];
 
 public void settings() 
 {
@@ -131,29 +131,29 @@ class Spaceship extends Floater
   
 public void keyPressed()
 {
-  //to rotate right
+  //to rotate right -- clockwise 
   if (keyCode == 39)
   {
     hello.myPointDirection = hello.myPointDirection +8;
   }
-  //to rotate left
+  //to rotate left -- counter clockwise
   if (keyCode == 37)
   {
      hello.myPointDirection = hello.myPointDirection -8;
   }
-  //to go foward
+  //to go foward from whereever 
   if (keyCode == 38)
   {
-    hello.myCenterX = hello.myCenterX + Math.cos(hello.myPointDirection);
-    hello.myCenterY = hello.myCenterY + Math.sin(hello.myPointDirection);
+    hello.myCenterX = hello.myPointDirection;
+    hello.myCenterY = hello.myPointDirection;
   }
-  //to go back
+  //to go back from whereever
   if (keyCode == 40)
   {
-    hello.myCenterY --;
-    hello.myCenterX --;
+    hello.myCenterY = hello.myPointDirection;
+    hello.myCenterX = hello.myPointDirection;
   }
-  //hyperspace
+  //hyperspace using the h key
   if (keyCode == 72)
   {
     hello.myCenterY = (int)(Math.random()*495);
@@ -189,11 +189,11 @@ class Rocks
 
   public Rocks()
   {
-    // have them float around randomly
+    // have them continuously come in from the sides and towards the ship
     myX = (int)(Math.random()*500);
     myY = (int)(Math.random()*500);
-    dAngle = (int)(Math.random() * PI/2) + 1;
-    dSpeed = (Math.random() * 2);
+    dAngle = PI * 2*  Math.random();
+    dSpeed = (Math.random() * 3) -2;
   }
   //move towards the spaceship
   public void move()
