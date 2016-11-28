@@ -144,8 +144,8 @@ public void keyPressed()
   //to go foward from whereever 
   if (keyCode == 38)
   {
-    hello.myCenterX = hello.myPointDirection;
-    hello.myCenterY = hello.myPointDirection;
+    hello.myCenterX = hello.myPointDirection + PI/2;
+    hello.myCenterY = hello.myPointDirection + PI/2;
   }
   //to go back from whereever
   if (keyCode == 40)
@@ -162,6 +162,11 @@ public void keyPressed()
   }
   //keypressed for shooting lasers
   //if (keyCode == ) 
+  //the spacebar to shoot lasers
+  if (keycode == 32)
+  {
+    
+  }
 
 }  
 
@@ -182,8 +187,56 @@ class Stars
     }
 }
 
-class Rocks
+class Rocks extends Floater
 {
+    public int corners;
+    public int[] xCorners;
+    public int[] yCorners;
+    public int myColor;
+    public double myCenterX, myCenterY;
+    public double myDirectionX, myDirectionY;
+    public double myPointDirection;
+    
+    public void setX(int x)
+   {
+     myCenterX = x;
+   }
+   public int getX()
+   {
+     return (int)myCenterX;
+   }
+    public void setY(int y)
+   {
+     myCenterY = y;
+   }
+   public int getY()
+   {
+     return (int)myCenterY;
+   }
+   public void setDirectionX(double x)
+   {
+     myDirectionX = x;
+   }
+   public double getDirectionX()  
+   {
+     return (double)myDirectionX;
+   }
+   public void setDirectionY(double y)
+   {
+     myDirectionY = y;
+   }
+   public double getDirectionY()
+  {
+    return (double)myDirectionY;
+  }
+  public void setPointDirection(int degrees)
+  {
+    myPointDirection = degrees;
+  }
+  public double getPointDirection()
+  {
+    return (double)myPointDirection;
+  }
   private double myX, myY;
   private double dAngle, dSpeed;
 
@@ -200,7 +253,7 @@ class Rocks
   {
     myX = myX + Math.cos(dAngle)*dSpeed;
     myY = myY + Math.sin(dAngle)* dSpeed;
-  }
+  } 
   public void show()
   {
     fill(80);
@@ -210,6 +263,24 @@ class Rocks
   }
 }
   
+class Bullets
+{
+  private int myX, myY;
+
+  public Bullets()
+  {
+    myX = hello.getX;
+    myY = hello.getY;
+  }
+
+  public void show()
+  {
+    stroke((int)(Math.random()*255), (int)(Math.random()*255), (int)(Math.random()*255));
+    strokeWeight(2);
+    point(myX, myY);
+  }
+}  
+
   
 //FLOATER CLASS - DO NOT TOUCH  
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
