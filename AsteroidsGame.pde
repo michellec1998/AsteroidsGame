@@ -2,6 +2,14 @@
 Spaceship hello = new Spaceship();
 Stars[] sparkles = new Stars[400];
 Rocks[] boom = new Rocks[100];
+//Bullets pew = new Bullets();
+/*
+if (keycode == 32)
+{
+  Bullets pew = new Bullets;
+  
+}
+*/
 
 public void settings() 
 {
@@ -128,7 +136,7 @@ class Spaceship extends Floater
   }  
 
 }
-  
+//press keys to hyperspace, stay stationary to shoot
 public void keyPressed()
 {
   //to rotate right -- clockwise 
@@ -142,7 +150,7 @@ public void keyPressed()
      hello.myPointDirection = hello.myPointDirection -8;
   }
   //to go foward from whereever 
-  if (keyCode == 38)
+  /* if (keyCode == 38)
   {
     hello.myCenterX = hello.myPointDirection + PI/2;
     hello.myCenterY = hello.myPointDirection + PI/2;
@@ -152,7 +160,7 @@ public void keyPressed()
   {
     hello.myCenterY = hello.myPointDirection;
     hello.myCenterX = hello.myPointDirection;
-  }
+  } */
   //hyperspace using the h key
   if (keyCode == 72)
   {
@@ -160,13 +168,11 @@ public void keyPressed()
     hello.myCenterX = (int)(Math.random()*495);
     hello.myPointDirection = (int)(Math.random()*495);
   }
-  //keypressed for shooting lasers
-  //if (keyCode == ) 
   //the spacebar to shoot lasers
-  if (keycode == 32)
+  /* if (keycode == 32)
   {
-    
-  }
+     = ;
+  } */
 
 }  
 
@@ -186,9 +192,10 @@ class Stars
       stroke(250);
     }
 }
-
+///fix this class
 class Rocks extends Floater
 {
+ 
     public int corners;
     public int[] xCorners;
     public int[] yCorners;
@@ -235,7 +242,7 @@ class Rocks extends Floater
   }
   public double getPointDirection()
   {
-    return (double)myPointDirection;
+  return (double)myPointDirection;
   }
   private double myX, myY;
   private double dAngle, dSpeed;
@@ -245,9 +252,11 @@ class Rocks extends Floater
     // have them continuously come in from the sides and towards the ship
     myX = (int)(Math.random()*500);
     myY = (int)(Math.random()*500);
-    dAngle = PI * 2*  Math.random();
-    dSpeed = (Math.random() * 3) -2;
+    //have to fix the variables of the asteroids
+    //dAngle = PI * 2*  Math.random();
+    //dSpeed = (Math.random() * 3) -2;
   }
+  //fix this code
   //move towards the spaceship
   public void move()
   {
@@ -262,8 +271,9 @@ class Rocks extends Floater
     ellipse((float)myX, (float)myY, 20, 20);
   }
 }
-  
-class Bullets
+
+//fix this class
+/* class Bullets
 {
   private int myX, myY;
 
@@ -279,7 +289,17 @@ class Bullets
     strokeWeight(2);
     point(myX, myY);
   }
-}  
+  public void move()
+  {
+    //have the bullets got towards the asteroids
+    if (keycode == 32)
+    {
+      myX = myX + boom.getX;
+      myY = myY + boom.getY;
+    }
+
+  }
+}  */
 
   
 //FLOATER CLASS - DO NOT TOUCH  
