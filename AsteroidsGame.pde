@@ -1,7 +1,7 @@
 
 Spaceship hello = new Spaceship();
 Stars[] sparkles = new Stars[400];
-Rocks[] boom = new Rocks[100];
+Rocks[] boom = new Rocks[200];
 //Bullets pew = new Bullets();
 /*
 if (keycode == 32)
@@ -193,71 +193,27 @@ class Stars
     }
 }
 ///fix this class
-class Rocks extends Floater
+class Rocks //extends Floater
 {
- 
-    public int corners;
-    public int[] xCorners;
-    public int[] yCorners;
-    public int myColor;
-    public double myCenterX, myCenterY;
-    public double myDirectionX, myDirectionY;
-    public double myPointDirection;
-    
-    public void setX(int x)
-   {
-     myCenterX = x;
-   }
-   public int getX()
-   {
-     return (int)myCenterX;
-   }
-    public void setY(int y)
-   {
-     myCenterY = y;
-   }
-   public int getY()
-   {
-     return (int)myCenterY;
-   }
-   public void setDirectionX(double x)
-   {
-     myDirectionX = x;
-   }
-   public double getDirectionX()  
-   {
-     return (double)myDirectionX;
-   }
-   public void setDirectionY(double y)
-   {
-     myDirectionY = y;
-   }
-   public double getDirectionY()
-  {
-    return (double)myDirectionY;
-  }
-  public void setPointDirection(int degrees)
-  {
-    myPointDirection = degrees;
-  }
-  public double getPointDirection()
-  {
-  return (double)myPointDirection;
-  }
   private double myX, myY;
   private double dAngle, dSpeed;
-
+ 
   public Rocks()
   {
-    // have them continuously come in from the sides and towards the ship
     myX = (int)(Math.random()*500);
     myY = (int)(Math.random()*500);
+    dAngle =  PI/2 *Math.random();
+    dSpeed = (Math.random() * 2) -1;
+    // have them continuously come in from the sides and towards the ship
+    //myX = (int)(Math.random()*500);
+    //myY = (int)(Math.random()*500);
     //have to fix the variables of the asteroids
     //dAngle = PI * 2*  Math.random();
     //dSpeed = (Math.random() * 3) -2;
   }
   //fix this code
   //move towards the spaceship
+
   public void move()
   {
     myX = myX + Math.cos(dAngle)*dSpeed;
