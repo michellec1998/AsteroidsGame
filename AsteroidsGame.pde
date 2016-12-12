@@ -1,18 +1,18 @@
 Spaceship hello = new Spaceship();
 Stars[] sparkles = new Stars[400];
-ArrayList <Asteroid> rockList;
+ArrayList <Asteroids> rockList;
 ArrayList <Bullets> pew;
 
 
-public void settings() 
+public void setup() 
 {
   size(500,500);
   
-  rockList = new ArrayList <Asteroid>();
+  rockList = new ArrayList <Asteroids>();
   
   for (int i = 0; i < 70; i++)
   {
-  rockList.add(new Asteroid());
+  rockList.add(new Asteroids());
   }
   
   for (int a = 0; a < sparkles.length; a ++)

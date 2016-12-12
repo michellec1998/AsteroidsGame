@@ -1,6 +1,8 @@
-class Asteroid extends Floater{
+class Asteroids extends Floater
+{
   private int rotateSpeed;
-  public Asteroid(){
+  public Asteroids()
+  {
     rotateSpeed = (int)(Math.random()*3)-1;
     //change color
     myColor = color(100);
